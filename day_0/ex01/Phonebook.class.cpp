@@ -19,11 +19,11 @@ Phonebook::~Phonebook(void)
 
 Contact Phonebook::get_contact(void)
 {
-	std::cout << "first name = " << this->fiche[number].get_first_name() << std::endl;
-	std::cout << "last name = " << this->fiche[number].get_last_name() << std::endl;
-	std::cout << "nick name = " << this->fiche[number].get_nick_name() << std::endl;
-	std::cout << "darkest secret = " << this->fiche[number].get_darkest_secret() << std::endl;
-	std::cout << "Phone number = " << this->fiche[number].get_phone_number() << std::endl;
+	// std::cout << "first name = " << this->fiche[number].get_first_name() << std::endl;
+	// std::cout << "last name = " << this->fiche[number].get_last_name() << std::endl;
+	// std::cout << "nick name = " << this->fiche[number].get_nick_name() << std::endl;
+	// std::cout << "darkest secret = " << this->fiche[number].get_darkest_secret() << std::endl;
+	// std::cout << "Phone number = " << this->fiche[number].get_phone_number() << std::endl;
 	return (this->fiche[number]);
 }
 
@@ -48,4 +48,15 @@ void	Phonebook::set_contact(void)
 	std::cout << "What's your phone number ?" << std::endl;
 	std::cin >> str;
 	fiche[number].set_phone_number(str);
+}
+
+/*---------------------DISPLAY-----------------------------*/
+
+void	Phonebook::display_contact(void)
+{
+	std::cout << "first name = " << this->fiche[number].get_first_name() << std::endl;
+	std::cout << "last name = " << this->fiche[number].get_last_name() << std::endl;
+	std::cout << "nick name = " << this->fiche[number].get_nick_name() << std::endl;
+	std::cout << "darkest secret = " << this->fiche[number].get_darkest_secret() << std::endl;
+	std::cout << "Phone number = " << this->fiche[number].get_phone_number() << std::endl;
 }
