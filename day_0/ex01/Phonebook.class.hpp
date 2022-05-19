@@ -13,7 +13,8 @@ class	Phonebook
 		Phonebook(void);
 		~Phonebook(void);
 		Contact	get_contact(void);
-		void	set_contact(std::string str);
+		//void	set_contact(std::string str);
+		void	set_contact(void);
 	private:
 		Contact fiche;
 };
