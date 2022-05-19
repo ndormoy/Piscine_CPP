@@ -5,6 +5,7 @@
 Phonebook::Phonebook(void)
 {
 	std::cout << "Phonebook Constructor called" << std ::endl;
+	number = 0;
 }
 
 /*----------------------Destructeur---------------------------*/
@@ -18,12 +19,12 @@ Phonebook::~Phonebook(void)
 
 Contact Phonebook::get_contact(void)
 {
-	std::cout << "first name = " << this->fiche.get_first_name() << std::endl;
-	std::cout << "last name = " << this->fiche.get_last_name() << std::endl;
-	std::cout << "nick name = " << this->fiche.get_nick_name() << std::endl;
-	std::cout << "darkest secret = " << this->fiche.get_darkest_secret() << std::endl;
-	std::cout << "Phone number = " << this->fiche.get_phone_number() << std::endl;
-	return (this->fiche);
+	std::cout << "first name = " << this->fiche[number].get_first_name() << std::endl;
+	std::cout << "last name = " << this->fiche[number].get_last_name() << std::endl;
+	std::cout << "nick name = " << this->fiche[number].get_nick_name() << std::endl;
+	std::cout << "darkest secret = " << this->fiche[number].get_darkest_secret() << std::endl;
+	std::cout << "Phone number = " << this->fiche[number].get_phone_number() << std::endl;
+	return (this->fiche[number]);
 }
 
 /*----------------------Setters-------------------------------*/
@@ -34,17 +35,17 @@ void	Phonebook::set_contact(void)
 
 	std::cout << "What's your first name ?" << std::endl;
 	std::cin >> str;
-	fiche.set_first_name(str);
+	fiche[number].set_first_name(str);
 	std::cout << "What's your last name ?" << std::endl;
 	std::cin >> str;
-	fiche.set_last_name(str);
+	fiche[number].set_last_name(str);
 	std::cout << "What's your nick name ?" << std::endl;
 	std::cin >> str;
-	fiche.set_nick_name(str);
+	fiche[number].set_nick_name(str);
 	std::cout << "What's your darkest secret ?" << std::endl;
 	std::cin >> str;
-	fiche.set_darkest_secret(str);
+	fiche[number].set_darkest_secret(str);
 	std::cout << "What's your phone number ?" << std::endl;
 	std::cin >> str;
-	fiche.set_phone_number(str);
+	fiche[number].set_phone_number(str);
 }
