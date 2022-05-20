@@ -4,7 +4,7 @@
 
 Phonebook::Phonebook(void)
 {
-	std::cout << "Phonebook Constructor called" << std ::endl;
+	// std::cout << "Phonebook Constructor called" << std ::endl;
 	number = 0;
 }
 
@@ -12,7 +12,7 @@ Phonebook::Phonebook(void)
 
 Phonebook::~Phonebook(void)
 {
-	std::cout << "Phonebook Destructor called" << std::endl;
+	// std::cout << "Phonebook Destructor called" << std::endl;
 }
 
 /*----------------------Getters-------------------------------*/

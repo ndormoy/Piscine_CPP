@@ -1,6 +1,18 @@
 #include "Phonebook.class.hpp"
 #include "Contact.class.hpp"
 
+void	Phonebook::show_all(Phonebook instance)
+{
+	int	store;
+
+	store = instance.number;
+	for (int i = 0; i < NB_CONTACT; i++)
+	{
+		instance.number = i;
+		instance.display_contact();
+	}
+	instance.number = store;
+}
 
 void	Phonebook::find_contact(Phonebook instance, std::string user_name)
 {
@@ -27,13 +39,12 @@ int	main()
 	std::string	user_name;
 	Phonebook	instance;
 
-
 	while (42)
 	{
 		std::cout << "Start loop" << std::endl;
-		if (instance.number == 3)
+		if (instance.number == 2)
 			instance.number = 0;
-		std::cout << "You can : <ADD> <SEARCH> <EXIT>" <<std::endl;
+		std::cout << "You can : <ADD> <SEARCH> <EXIT> <SHOW>" <<std::endl;
 		std::cin >> action;
 		if (action.compare("EXIT") == 0)
 			return (0);
@@ -44,16 +55,9 @@ int	main()
 			instance.number++;
 		}
 		if (action.compare("SEARCH") == 0)
-		{
 			instance.find_contact(instance, user_name);
-			// store = instance.number;
-			// std::getline(std::cin, name);/* std::cin >> name; */
-			// std::cout << "Name = " << name << std::endl;
-			// instance.find_contact(instance, name);
-			// instance.display_contact();
-			// //instance.get_contact();
-			// instance.number = store;
-		}
+		if (action.compare("SHOW") == 0)
+			instance.show_all(instance);
 	}
 	std::cout << "loooooool" << std::endl;
 	return (0);

@@ -4,14 +4,14 @@
 
 Contact::Contact(void)
 {
-	std::cout << "Contact Constructor called" << std::endl;
+	// std::cout << "Contact Constructor called" << std::endl;
 }
 
 /*----------------------Destructeur---------------------------*/
 
 Contact::~Contact(void)
 {
-	std::cout << "Contact Destructor called" << std::endl;
+	// std::cout << "Contact Destructor called" << std::endl;
 }
 
 /*----------------------Getters-------------------------------*/

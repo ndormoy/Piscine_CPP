@@ -5,7 +5,7 @@
 #include <string>
 #include "Contact.class.hpp"
 
-#define NB_CONTACT 5
+#define NB_CONTACT 2
 
 class	Phonebook
 {
@@ -15,6 +15,7 @@ class	Phonebook
 		Contact	get_contact(void);
 		void	set_contact(void);
 		void	find_contact(Phonebook instance, std::string name);
+		void	show_all(Phonebook instance);
 		void	display_contact(void);
 		int		number;
 	private:
