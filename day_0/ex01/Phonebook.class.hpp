@@ -5,7 +5,7 @@
 #include <string>
 #include "Contact.class.hpp"
 
-#define NB_CONTACT 2
+#define NB_CONTACT 5
 
 class	Phonebook
 {
@@ -18,7 +18,7 @@ class	Phonebook
 		void	display_contact(void);
 		int		number;
 	private:
-		Contact fiche[2];
+		Contact fiche[NB_CONTACT];
 };
 
 #endif

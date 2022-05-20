@@ -2,51 +2,59 @@
 #include "Contact.class.hpp"
 
 
-void	Phonebook::find_contact(Phonebook instance, std::string name)
+void	Phonebook::find_contact(Phonebook instance, std::string user_name)
 {
-	(void)name;
+	int	store;
 
+	store = instance.number;
+	std::cin >> user_name;
 	for(int i = 0; i < NB_CONTACT; i++)
 	{
 		instance.number = i;
-		//std::cout << "hehe -> "<< fiche[instance.number].get_first_name() << std::endl;
-		
-		if (name.compare(fiche[instance.number].get_first_name()) == 0)
+		if (user_name.compare(fiche[instance.number].get_first_name()) == 0)
+		{
+			instance.display_contact();
+			instance.number = store;
 			return ;
+		}	
 	}
+	std::cout << "The contact is not in my repertory... Sorry" << std::endl;
 }
 
 int	main()
 {
-	std::string	str;
-	std::string	name;
+	std::string	action;
+	std::string	user_name;
 	Phonebook	instance;
-	int	store;
+
 
 	while (42)
 	{
-		if (instance.number == 2)
+		std::cout << "Start loop" << std::endl;
+		if (instance.number == 3)
 			instance.number = 0;
 		std::cout << "You can : <ADD> <SEARCH> <EXIT>" <<std::endl;
-		std::cin >> str;
-		if (str.compare("EXIT") == 0)
+		std::cin >> action;
+		if (action.compare("EXIT") == 0)
 			return (0);
-		if (str.compare("ADD") == 0)
+		if (action.compare("ADD") == 0)
 		{
 			std::cout << "number = " << instance.number << std::endl;
 			instance.set_contact();
 			instance.number++;
 		}
-		if (str.compare("SEARCH") == 0)
+		if (action.compare("SEARCH") == 0)
 		{
-			store = instance.number;
-			std::cin >> name;
-			instance.find_contact(instance, name);
-			instance.display_contact();
-			//instance.get_contact();
-			instance.number = store;
+			instance.find_contact(instance, user_name);
+			// store = instance.number;
+			// std::getline(std::cin, name);/* std::cin >> name; */
+			// std::cout << "Name = " << name << std::endl;
+			// instance.find_contact(instance, name);
+			// instance.display_contact();
+			// //instance.get_contact();
+			// instance.number = store;
 		}
 	}
-
+	std::cout << "loooooool" << std::endl;
 	return (0);
 }
