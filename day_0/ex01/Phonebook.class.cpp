@@ -47,30 +47,44 @@ void	Phonebook::set_contact(void)
 
 /*---------------------DISPLAY--------------------------------*/
 
-void	/* Phonebook:: */display_column(std::string column)
+/*Va afficher le nombre d'espace necessaire pour que tout 
+soit aligne a droite*/
+
+void	display_spaces(int nb)
 {
-	std::cout << "Column = " << column << std::endl;
+	for (int i = 0; i < nb; i++)
+		std::cout << " ";
 }
+
+/*Va afficher une colonne d'un contact (Name ...)*/
+
+void	display_column(std::string column)
+{
+	int	size = column.size();
+	int	spaces = 10 - size;
+
+	if (size < 10)
+		display_spaces(spaces);
+	for (int i = 0; i < 10 - spaces; i++)
+	{
+		if (i == 9 && size > 10)
+		{
+			std::cout << ".";
+			break ;
+		}
+		std::cout << column[i];
+	}
+	std::cout << '|';
+}
+
+/*Va afficher une ligne avec les informations d'un contact*/
 
 void	Phonebook::display_contact(void)
 {
 	std::cout << "     index|first name| last name| nick name|" << std::endl;
-	std::cout << "first name = " << std::endl;
+	std::cout << "         " << this->number << '|';
 	display_column(this->fiche[this->number].get_first_name());
-	std::cout << "last name = " << std::endl;
 	display_column(this->fiche[this->number].get_last_name());
-	std::cout << "nick name = " << std::endl;
 	display_column(this->fiche[this->number].get_nick_name());
-	// std::cout << "darkest secret = " << this->fiche[this->number].get_darkest_secret() << std::endl;
-	// std::cout << "Phone number = " << this->fiche[this->number].get_phone_number() << std::endl;
+	std::cout << "" << std::endl;
 }
-
-/* void	Phonebook::display_contact(void)
-{
-	std::cout << "     index|first name| last name| nick name|" << std::endl;
-	std::cout << "first name = " << this->fiche[this->number].get_first_name() << std::endl;
-	std::cout << "last name = " << this->fiche[this->number].get_last_name() << std::endl;
-	std::cout << "nick name = " << this->fiche[this->number].get_nick_name() << std::endl;
-	std::cout << "darkest secret = " << this->fiche[this->number].get_darkest_secret() << std::endl;
-	std::cout << "Phone number = " << this->fiche[this->number].get_phone_number() << std::endl;
-} */
