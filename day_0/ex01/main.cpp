@@ -2,19 +2,6 @@
 #include "Contact.class.hpp"
 #include "colors.hpp"
 
-void	Phonebook::show_all(Phonebook instance)
-{
-	int	store;
-
-	store = instance.number;
-	for (int i = 0; i < NB_CONTACT; i++)
-	{
-		instance.number = i;
-		instance.display_contact();
-	}
-	instance.number = store;
-}
-
 void	Phonebook::find_contact(Phonebook instance)
 {
 	int	store;
@@ -57,8 +44,6 @@ int	main()
 		}
 		if (action.compare("SEARCH") == 0)
 			instance.find_contact(instance);
-		if (action.compare("SHOW") == 0)
-			instance.show_all(instance);
 	}
 	return (0);
 }
