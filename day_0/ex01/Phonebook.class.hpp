@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include "Contact.class.hpp"
+#include "colors.hpp"
 
 #define NB_CONTACT 2
 
