@@ -6,7 +6,7 @@
 #include "Contact.class.hpp"
 #include "colors.hpp"
 
-#define NB_CONTACT 2
+#define NB_CONTACT 8
 
 class	Phonebook
 {

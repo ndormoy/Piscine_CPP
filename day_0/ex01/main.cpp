@@ -13,7 +13,8 @@ void	Phonebook::find_contact(Phonebook instance)
 	for(int i = 0; i < NB_CONTACT; i++)
 	{
 		instance.number = i;
-		if (i == index && i < store)
+		if (i == index
+			&& (this->fiche[this->number].get_first_name().empty() != true))
 		{
 			instance.display_contact();
 			instance.number = store;
@@ -30,9 +31,9 @@ int	main()
 
 	while (42)
 	{
-		if (instance.number == 2)
+		if (instance.number == NB_CONTACT)
 			instance.number = 0;
-		std::cout << BYEL "You can : <ADD> <SEARCH> <EXIT> <SHOW>" CRESET <<std::endl;
+		std::cout << BYEL "You can : <ADD> <SEARCH> <EXIT>" CRESET <<std::endl;
 		std::cout << CYN "Phonebook $> " CRESET;
 		std::cin >> action;
 		if (action.compare("EXIT") == 0)
