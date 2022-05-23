@@ -14,7 +14,7 @@ class	Phonebook
 		~Phonebook(void);
 		Contact	get_contact(void);
 		void	set_contact(void);
-		void	find_contact(Phonebook instance, std::string name);
+		void	find_contact(Phonebook instance);
 		void	show_all(Phonebook instance);
 		void	display_contact(void);
 		int		number;

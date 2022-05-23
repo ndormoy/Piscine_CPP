@@ -14,34 +14,33 @@ void	Phonebook::show_all(Phonebook instance)
 	instance.number = store;
 }
 
-void	Phonebook::find_contact(Phonebook instance, std::string user_name)
+void	Phonebook::find_contact(Phonebook instance)
 {
 	int	store;
+	int	index;
 
 	store = instance.number;
-	std::cin >> user_name;
+	std::cin >> index;
 	for(int i = 0; i < NB_CONTACT; i++)
 	{
 		instance.number = i;
-		if (user_name.compare(fiche[instance.number].get_first_name()) == 0)
+		if (i == index)
 		{
 			instance.display_contact();
 			instance.number = store;
 			return ;
 		}	
 	}
-	std::cout << "The contact is not in my repertory... Sorry" << std::endl;
+	std::cout << "Contact does not exist ... Sorry" << std::endl;
 }
 
 int	main()
 {
-	std::string	action;
-	std::string	user_name;
 	Phonebook	instance;
+	std::string	action;
 
 	while (42)
 	{
-		std::cout << "Start loop" << std::endl;
 		if (instance.number == 2)
 			instance.number = 0;
 		std::cout << "You can : <ADD> <SEARCH> <EXIT> <SHOW>" <<std::endl;
@@ -50,15 +49,13 @@ int	main()
 			return (0);
 		if (action.compare("ADD") == 0)
 		{
-			std::cout << "number = " << instance.number << std::endl;
 			instance.set_contact();
 			instance.number++;
 		}
 		if (action.compare("SEARCH") == 0)
-			instance.find_contact(instance, user_name);
+			instance.find_contact(instance);
 		if (action.compare("SHOW") == 0)
 			instance.show_all(instance);
 	}
-	std::cout << "loooooool" << std::endl;
 	return (0);
 }

@@ -47,11 +47,30 @@ void	Phonebook::set_contact(void)
 
 /*---------------------DISPLAY--------------------------------*/
 
+void	/* Phonebook:: */display_column(std::string column)
+{
+	std::cout << "Column = " << column << std::endl;
+}
+
 void	Phonebook::display_contact(void)
 {
+	std::cout << "     index|first name| last name| nick name|" << std::endl;
+	std::cout << "first name = " << std::endl;
+	display_column(this->fiche[this->number].get_first_name());
+	std::cout << "last name = " << std::endl;
+	display_column(this->fiche[this->number].get_last_name());
+	std::cout << "nick name = " << std::endl;
+	display_column(this->fiche[this->number].get_nick_name());
+	// std::cout << "darkest secret = " << this->fiche[this->number].get_darkest_secret() << std::endl;
+	// std::cout << "Phone number = " << this->fiche[this->number].get_phone_number() << std::endl;
+}
+
+/* void	Phonebook::display_contact(void)
+{
+	std::cout << "     index|first name| last name| nick name|" << std::endl;
 	std::cout << "first name = " << this->fiche[this->number].get_first_name() << std::endl;
 	std::cout << "last name = " << this->fiche[this->number].get_last_name() << std::endl;
 	std::cout << "nick name = " << this->fiche[this->number].get_nick_name() << std::endl;
 	std::cout << "darkest secret = " << this->fiche[this->number].get_darkest_secret() << std::endl;
 	std::cout << "Phone number = " << this->fiche[this->number].get_phone_number() << std::endl;
-}
+} */
