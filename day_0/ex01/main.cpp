@@ -14,7 +14,7 @@ void	Phonebook::find_contact(Phonebook instance)
 	{
 		instance.number = i;
 		if (i == index
-			&& (this->fiche[this->number].get_first_name().empty() != true))
+			&& (instance.fiche[instance.number].get_first_name().empty() != true))
 		{
 			instance.display_contact();
 			instance.number = store;
