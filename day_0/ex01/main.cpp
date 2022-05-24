@@ -16,7 +16,7 @@ void	Phonebook::find_contact(Phonebook instance)
 	str_char = (char *)str.c_str();
 	index = atoi(str_char);
 	//index = std::atoi(str.data());
-	if (index >= 0 && index < 8 && (str.size() == 1))
+	if (index >= 0 && index < 8 && (str.size() == 1) && std::isdigit(str[0]))
 	{
 		for(int i = 0; i < NB_CONTACT; i++)
 		{

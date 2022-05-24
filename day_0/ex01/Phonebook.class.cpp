@@ -45,27 +45,6 @@ void	Phonebook::set_contact(void)
 	fiche[number].set_phone_number(set_str_contact(str, "Phone number : "));
 }
 
-/* void	Phonebook::set_contact(void)
-{
-	std::string	str;
-
-	std::cout << BGRN "First name : " CRESET;
-	getline(std::cin,str);
-	fiche[number].set_first_name(str);
-	std::cout << BGRN "Last name : " CRESET;
-	getline(std::cin,str);
-	fiche[number].set_last_name(str);
-	std::cout << BGRN "Nick name : " CRESET;
-	getline(std::cin,str);
-	fiche[number].set_nick_name(str);
-	std::cout << BGRN "Darkest secret : " CRESET;
-	getline(std::cin,str);
-	fiche[number].set_darkest_secret(str);
-	std::cout << BGRN "Phone number : " CRESET;
-	getline(std::cin,str);
-	fiche[number].set_phone_number(str);
-} */
-
 /*---------------------DISPLAY--------------------------------*/
 
 /*Va afficher le nombre d'espace necessaire pour que tout 
@@ -102,8 +81,10 @@ void	display_column(std::string column)
 
 void	Phonebook::display_contact(void)
 {
-	
-	std::cout << std::setw(55) << BGRN "index|first name| last name| nick name|" CRESET << std::endl;	
+	std::cout << std::setw(18) << BGRN "index|";
+	std::cout << std::setw(11) << "first name|";
+	std::cout << std::setw(11) << "last name|";
+	std::cout << std::setw(15) << "nick name|" CRESET << std::endl;
 	std::cout << GRN "         " << this->number << "|" CRESET;
 	display_column(this->fiche[this->number].get_first_name());
 	display_column(this->fiche[this->number].get_last_name());
