@@ -81,7 +81,8 @@ void	display_column(std::string column)
 
 void	Phonebook::display_contact(void)
 {
-	std::cout << BGRN "     index|first name| last name| nick name|" CRESET << std::endl;
+	
+	std::cout << std::setw(55) << BGRN "index|first name| last name| nick name|" CRESET << std::endl;	
 	std::cout << GRN "         " << this->number << "|" CRESET;
 	display_column(this->fiche[this->number].get_first_name());
 	display_column(this->fiche[this->number].get_last_name());

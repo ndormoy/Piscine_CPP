@@ -5,6 +5,7 @@
 #include <string>
 #include "Contact.class.hpp"
 #include "colors.hpp"
+#include <iomanip>
 
 #define NB_CONTACT 8
 

@@ -31,11 +31,17 @@ int	main()
 
 	while (42)
 	{
+		//action = "";
 		if (instance.number == NB_CONTACT)
 			instance.number = 0;
 		std::cout << BYEL "You can : <ADD> <SEARCH> <EXIT>" CRESET <<std::endl;
 		std::cout << CYN "Phonebook $> " CRESET;
-		std::cin >> action;
+		getline(std::cin,action);
+		if (action.empty() == true)
+		{
+			std::cout << BRED "Ctrl D" CRESET << std::endl;
+			return (0);
+		}
 		if (action.compare("EXIT") == 0)
 			return (0);
 		if (action.compare("ADD") == 0)
@@ -45,6 +51,7 @@ int	main()
 		}
 		if (action.compare("SEARCH") == 0)
 			instance.find_contact(instance);
+		std::cin.ignore(256,'\n');
 	}
 	return (0);
 }
