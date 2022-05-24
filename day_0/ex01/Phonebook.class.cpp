@@ -24,26 +24,47 @@ Contact Phonebook::get_contact(void)
 
 /*----------------------Setters-------------------------------*/
 
+std::string	set_str_contact(std::string str, std::string sentence)
+{
+	do
+	{
+		std::cout << BGRN << sentence << CRESET;
+		std::getline(std::cin, str);
+	} while (str.empty());
+	return (str);
+}
+
 void	Phonebook::set_contact(void)
 {
 	std::string	str;
 
+	fiche[number].set_first_name(set_str_contact(str, "First name : "));
+	fiche[number].set_last_name(set_str_contact(str, "Last name : "));
+	fiche[number].set_nick_name(set_str_contact(str, "Nick name : "));
+	fiche[number].set_darkest_secret(set_str_contact(str, "Darkest secret : "));
+	fiche[number].set_phone_number(set_str_contact(str, "Phone number : "));
+}
+
+/* void	Phonebook::set_contact(void)
+{
+	std::string	str;
+
 	std::cout << BGRN "First name : " CRESET;
-	std::cin >> str;
+	getline(std::cin,str);
 	fiche[number].set_first_name(str);
 	std::cout << BGRN "Last name : " CRESET;
-	std::cin >> str;
+	getline(std::cin,str);
 	fiche[number].set_last_name(str);
 	std::cout << BGRN "Nick name : " CRESET;
-	std::cin >> str;
+	getline(std::cin,str);
 	fiche[number].set_nick_name(str);
 	std::cout << BGRN "Darkest secret : " CRESET;
-	std::cin >> str;
+	getline(std::cin,str);
 	fiche[number].set_darkest_secret(str);
 	std::cout << BGRN "Phone number : " CRESET;
-	std::cin >> str;
+	getline(std::cin,str);
 	fiche[number].set_phone_number(str);
-}
+} */
 
 /*---------------------DISPLAY--------------------------------*/
 
