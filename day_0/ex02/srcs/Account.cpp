@@ -3,6 +3,9 @@
 #include <functional>
 #include <iostream>
 #include "Account.hpp"
+#include <sys/time.h>
+#include <stdio.h>
+
 
 /*---------------Definitions des variables statiques--------------*/
 
@@ -61,12 +64,20 @@ int	Account::getNbWithdrawals( void )
 	return (_totalNbWithdrawals);
 }
 
-/*--------------------------FUNCTIONS--------------------------------------*/
+/*--------------------------TIME-------------------------------------------*/
 
 void	Account::_displayTimestamp(void)
 {
-	std::cout << "[19920104_091532] ";
+	//std::cout << "[19920104_091532] ";
+	time_t	timestamp;
+	char	buff[16];
+
+	time(&timestamp);
+	strftime(buff, sizeof(buff), "%Y%m%d_%H%M%S", localtime(&timestamp));
+	std::cout << "[" << buff << "]";
 }
+
+/*--------------------------FUNCTIONS--------------------------------------*/
 
 void	Account::displayAccountsInfos(void)
 {
@@ -100,30 +111,9 @@ void	Account::makeDeposit( int deposit )
 	_totalAmount += deposit;
 }
 
-/* bool	Account::makeWithdrawal( int withdrawal )
-{
-	_displayTimestamp();
-	std::cout << "index:" << _accountIndex;
-	std::cout << ";p_amount:" << _amount;
-	std::cout << ";withdrawal:" << withdrawal;
-	std::cout << ":refused" << std::endl;
-	//std::cout << "-------------------withdrawal----------:|" << withdrawal << "|"<<std::endl;
-	if (_amount > withdrawal)
-	{
-		_totalAmount -= withdrawal;
-	}
-	
-	// std::cout << ";amount:" << _amount;
-	// std::cout << ";nb_withdrawals:" << std::endl;
-	return (true);
-} */
-
 bool	Account::makeWithdrawal( int withdrawal )
 {
 	_displayTimestamp();
-	
-	
-	//std::cout << "-------------------withdrawal----------:|" << withdrawal << "|"<<std::endl;
 	if (_amount > withdrawal)
 	{
 		std::cout << "index:" << _accountIndex;
@@ -142,8 +132,5 @@ bool	Account::makeWithdrawal( int withdrawal )
 		std::cout << ";p_amount:" << _amount;
 		std::cout << ";withdrawal:refused" << std::endl;
 	}
-	
-	// std::cout << ";amount:" << _amount;
-	// std::cout << ";nb_withdrawals:" << std::endl;
 	return (true);
 }
