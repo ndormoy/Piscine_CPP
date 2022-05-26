@@ -4,10 +4,8 @@
 
 Zombie::Zombie(std::string name)
 {
-	// std::cout << "Zombie Constructor called" << std ::endl;
-	std::cout << name;
-	announce();
-	
+	std::cout << "Zombie Constructor called, hello " << name << std ::endl;
+	_name = name;
 }
 
 /*----------------------Destructeur--------------------*/
@@ -37,5 +35,5 @@ void	Zombie::set_name(std::string name)
 
 void	Zombie::announce(void)
 {
-	std::cout << ": BraiiiiiiinnnzzzZ..." << std::endl;
+	std::cout << _name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
