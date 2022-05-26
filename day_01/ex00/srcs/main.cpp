@@ -2,8 +2,13 @@
 
 int main()
 {
-	Zombie	*instance = NULL;
+	Zombie	*bill;
+	Zombie	*larmina;
 
-	instance = newZombie("hey");
+	bill = newZombie("bill");
+	larmina = newZombie("larmina");
+	randomChump("heap_zomb");
+	delete(bill);
+	delete(larmina);
 	return (0);
 }

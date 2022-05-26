@@ -2,9 +2,8 @@
 
 /*----------------------Constructeur-------------------*/
 
-Zombie::Zombie(std::string name, std::string type)
+Zombie::Zombie(std::string name)
 {
-	(void)type;
 	// std::cout << "Zombie Constructor called" << std ::endl;
 	std::cout << name;
 	announce();
@@ -22,11 +21,21 @@ Zombie::~Zombie(void)
 
 /*----------------------GETTERS------------------------*/
 
+std::string	Zombie::get_name(void)
+{
+	return (this->_name);
+}
 
+/*----------------------SETTERS------------------------*/
+
+void	Zombie::set_name(std::string name)
+{
+	this->_name = name;
+}
 
 /*----------------------FUNCTIONS----------------------*/
 
 void	Zombie::announce(void)
 {
-	std::cout << ":BraiiiiiiinnnzzzZ..." << std::endl;
+	std::cout << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
