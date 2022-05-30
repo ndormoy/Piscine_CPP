@@ -1,32 +1,90 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <cstring>
+
+std::string __replace_occurence(std::string buffer, std::string new_txt,
+	std::string new_str, std::string old_str)
+{
+	std::size_t found;
+
+	for (int i = 0; i < (int)buffer.size(); i++)
+	{
+		found = buffer.find(old_str, i);
+		if (found != std::string::npos)
+		{
+			while (i < (int)found)
+			{
+				new_txt += buffer[i];
+				i++;
+			}
+			new_txt.append(new_str);
+			i += old_str.size() - 1;
+		}
+		else
+		{
+			while (i < (int)buffer.size())
+			{
+				new_txt += buffer[i];
+				i++;
+			}
+			return (new_txt);
+		}
+	}
+	return (new_txt);
+}
 
 int main(int argc, char *argv[])
 {
-	std::string		buffer;
-	std::string		test;
-	std::string		new_name("lol");
-	std::string		other_name("pouet");
-
-	test = new_name + other_name;
-	std::cout << test << std::endl;
+	if (argc != 4 || std::strlen(argv[1]) == 0 || std::strlen(argv[2]) == 0 || std::strlen(argv[3]) == 0)
+	{
+		std::cerr << "Wrong arguments" << std::endl;
+		return (1);
+	}
+	std::string		old_str = argv[2];
+	std::string		new_str = argv[3];
 	std::ifstream	ifs(argv[1]);
-
-	std::ofstream	ofs("new.txt");
 	if (!ifs)
 	{
 		std::cerr << "Can't open the file " << argv[1];
+		return (1);
 	}
-	ifs >> buffer;
-	if (argc == 4)
+	std::string		new_file = argv[1];
+	new_file.append(".replace");
+	std::ofstream	ofs(new_file.c_str());
+	std::string		buffer;
+	std::string		new_txt;
+	//std::size_t	found;
+	while (42)
 	{
-		while (std::getline(ifs, buffer))
-		{
-			std::cout << buffer << std::endl;
-		}
-		//std::cout << buffer << std::endl;
+		std::getline(ifs, buffer);
+		new_txt = __replace_occurence(buffer, new_txt, new_str, old_str);
+		// for (int i = 0; i < (int)buffer.size(); i++)
+		// {
+		// 	found = buffer.find(old_str, i);
+		// 	if (found != std::string::npos)
+		// 	{
+		// 		while (i < (int)found)
+		// 		{
+		// 			new_txt += buffer[i];
+		// 			i++;
+		// 		}
+		// 		new_txt.append(new_str);
+		// 		i += old_str.size() - 1;
+		// 	}
+		// 	else
+		// 	{
+		// 		while (i < (int)buffer.size())
+		// 		{
+		// 			new_txt += buffer[i];
+		// 			i++;
+		// 		}
+		// 		break ;
+		// 	}
+		// }
+		if (ifs.eof() == true)
+			break ;
+		new_txt.append("\n");
 	}
-	else
-		std::cerr << "Wrong number of arguments" << std::endl;
+	std::cout << new_txt;
 }
