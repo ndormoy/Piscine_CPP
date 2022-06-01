@@ -12,20 +12,29 @@ class Fixed
 		Fixed(float const f); // Convertit le float f to fixed point
 		~Fixed(void); // destructor
 
-		int	getRawBits(void) const; // return raw bits
+		int		getRawBits(void) const; // return raw bits
 		void	setRawBits(int const nb); // set raw bits
-		Fixed &operator=(Fixed const &rhs); // overload assignment operator
-		bool	operator>(Fixed const &rhs) const; //overload op
-		// bool	operator<(Fixed const &rhs) const; //overload op
-		// bool	operator>=(Fixed const &rhs) const; //overload op
-		// bool	operator<=(Fixed const &rhs) const; //overload op
-		// bool	operator==(Fixed const &rhs) const; //overload op
-		// bool	operator!=(Fixed const &rhs) const; //overload op
-		// Fixed	operator+(Fixed const &rhs) const; //overload op
-		// Fixed	operator-(Fixed const &rhs) const; //overload op
-		// Fixed	operator*(Fixed const &rhs) const; //overload op
-		// Fixed	operator/(Fixed const &rhs) const; //overload op
 
+		static	Fixed	const	&max(Fixed const &ref_1, Fixed const &ref_2);
+		//int		max(Fixed const &rhs);
+		//int		min(Fixed &rhs);
+		//int		min(Fixed const &rhs);
+
+		Fixed	&operator=(Fixed const &rhs); // overload assignment operator
+		bool	operator>(Fixed const &rhs) const; //overload op
+		bool	operator<(Fixed const &rhs) const; //overload op
+		bool	operator>=(Fixed const &rhs) const; //overload op
+		bool	operator<=(Fixed const &rhs) const; //overload op
+		bool	operator==(Fixed const &rhs) const; //overload op
+		bool	operator!=(Fixed const &rhs) const; //overload op
+		Fixed	operator+(Fixed const &rhs) const; //overload op
+		Fixed	operator-(Fixed const &rhs) const; //overload op
+		Fixed	operator*(Fixed const &rhs) const; //overload op
+		Fixed	operator/(Fixed const &rhs) const; //overload op
+		Fixed	operator++(int); // Postfix increment op
+		Fixed	&operator++(void); // Prefix increment op
+		Fixed	operator--(int); // Postfix decrement op
+		Fixed	&operator--(void); // Prefix decrement op
 		float	toFloat(void) const; //Convertit la valeur a virgule fixe en virgule flottante
 		int	 	toInt(void) const; //Convertit la valeur a virgule fixe en nb entier
 
@@ -35,3 +44,5 @@ class Fixed
 };
 
 std::ostream	&operator<<(std::ostream &out, Fixed const &rhs);
+
+

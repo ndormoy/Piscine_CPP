@@ -6,26 +6,22 @@
 
 Fixed::Fixed(void)
 {
-	std::cout << "Default constructor called" << std::endl;
 	this->_raw_bits = 0;
 }
 
 Fixed::Fixed(Fixed const &src)
 {
-	std::cout << "Copy contructor called" << std::endl;
 	*this = src;
 }
 
 Fixed::Fixed(int const i)
 {
-	std::cout << "Int constructor called" << std::endl;
 	setRawBits((i * (1 << this->_fract_bits)));
 
 }
 
 Fixed::Fixed(float const f)
 {
-	std::cout << "Float constructor called" << std::endl;
 	setRawBits(roundf(f * (1 << this->_fract_bits)));
 }
 
@@ -33,14 +29,13 @@ Fixed::Fixed(float const f)
 
 Fixed::~Fixed(void)
 {
-	std::cout << "Destructor called" << std::endl;
+
 }
 
 /*----------------Overload operator------------*/
 
 Fixed	&Fixed::operator=(Fixed const &rhs)
 {
-	std::cout << "Copy assignement operator called" << std::endl;
 	this->_raw_bits = rhs.getRawBits();
 	return (*this);
 }
@@ -50,6 +45,99 @@ bool	Fixed::operator>(Fixed const &rhs) const
 	if (rhs.getRawBits() > this->_raw_bits)
 		return (true);
 	return (false);
+}
+
+bool	Fixed::operator<(Fixed const &rhs) const
+{
+	if (rhs.getRawBits() < this->_raw_bits)
+		return (true);
+	return (false);
+}
+
+bool	Fixed::operator>=(Fixed const &rhs) const
+{
+	if (rhs.getRawBits() >= this->_raw_bits)
+		return (true);
+	return (false);
+}
+
+bool	Fixed::operator<=(Fixed const &rhs) const
+{
+	if (rhs.getRawBits() <= this->_raw_bits)
+		return (true);
+	return (false);
+}
+
+bool	Fixed::operator==(Fixed const &rhs) const
+{
+	if (rhs.getRawBits() == this->_raw_bits)
+		return (true);
+	return (false);
+}
+
+bool	Fixed::operator!=(Fixed const &rhs) const
+{
+	if (rhs.getRawBits() != this->_raw_bits)
+		return (true);
+	return (false);
+}
+
+Fixed	Fixed::operator+(Fixed const &rhs) const
+{
+	return (Fixed(this->toFloat() + rhs.toFloat()));
+}
+
+Fixed	Fixed::operator-(Fixed const &rhs) const
+{
+	return (Fixed(this->toFloat() - rhs.toFloat()));
+}
+
+Fixed	Fixed::operator*(Fixed const &rhs) const
+{
+	return (Fixed(this->toFloat() * rhs.toFloat()));
+}
+
+Fixed	Fixed::operator/(Fixed const &rhs) const
+{
+	return (Fixed(this->toFloat() / rhs.toFloat()));
+}
+
+/*Postfix increment op : ici on retourne la valeur pas changee de la variable,
+mais dans this la variable est incrementee. Du coup pendant le calcul
+la variable ne change pas, elle est incrementee seulement apres*/
+
+Fixed	Fixed::operator++(int)
+{
+	Fixed	tmp;
+	tmp = *this; // 3
+	this->_raw_bits++; // this 4
+	return tmp; //tmp 3
+}
+
+/*Prefix increment op*/
+
+Fixed	&Fixed::operator++(void)
+{
+	this->_raw_bits++;
+	return (*this);
+}
+
+/*Posfix decrement op*/
+
+Fixed	Fixed::operator--(int)
+{
+	Fixed	tmp;
+	tmp = *this; // 3
+	this->_raw_bits--; // this 4
+	return tmp; //tmp 3
+}
+
+/*Prefix decrement op*/
+
+Fixed	&Fixed::operator--(void)
+{
+	this->_raw_bits--;
+	return (*this);
 }
 
 std::ostream	&operator<<(std::ostream &out, Fixed const &rhs)
@@ -86,4 +174,12 @@ float	Fixed::toFloat(void) const
 int		Fixed::toInt(void) const
 {
 	return ((int)this->_raw_bits / (int)(1 << _fract_bits));
+}
+
+Fixed		const &Fixed::max(Fixed const &ref_1, Fixed const &ref_2)
+{
+	if (ref_1.getRawBits() > ref_2.getRawBits())
+		return (ref_1);
+	else
+		return (ref_2);
 }
