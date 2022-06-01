@@ -1,4 +1,5 @@
 #include "Phonebook.class.hpp"
+#include <stdlib.h>
 
 /*----------------------Constructeur--------------------------*/
 
@@ -30,6 +31,11 @@ std::string	set_str_contact(std::string str, std::string sentence)
 	{
 		std::cout << BGRN << sentence << CRESET;
 		std::getline(std::cin, str);
+		if (std::cin.eof() == true)
+		{
+			std::cout << BRED "Ctrl D" CRESET << std::endl;
+			exit(1);
+		}
 	} while (str.empty());
 	return (str);
 }

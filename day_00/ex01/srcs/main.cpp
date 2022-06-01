@@ -13,9 +13,13 @@ void	Phonebook::find_contact(Phonebook instance)
 	std::cout << BGRN "Index contact : " CRESET;
 	store = instance.number;
 	getline(std::cin,str);
+	if (std::cin.eof() == true)
+	{
+		std::cout << BRED "Ctrl D" CRESET << std::endl;
+		exit(1);
+	}
 	str_char = (char *)str.c_str();
 	index = atoi(str_char);
-	//index = std::atoi(str.data());
 	if (index >= 0 && index < 8 && (str.size() == 1) && std::isdigit(str[0]))
 	{
 		for(int i = 0; i < NB_CONTACT; i++)
