@@ -42,42 +42,42 @@ Fixed	&Fixed::operator=(Fixed const &rhs)
 
 bool	Fixed::operator>(Fixed const &rhs) const
 {
-	if (rhs.getRawBits() > this->_raw_bits)
+	if (this->_raw_bits > rhs.getRawBits())
 		return (true);
 	return (false);
 }
 
 bool	Fixed::operator<(Fixed const &rhs) const
 {
-	if (rhs.getRawBits() < this->_raw_bits)
+	if (this->_raw_bits < rhs.getRawBits())
 		return (true);
 	return (false);
 }
 
 bool	Fixed::operator>=(Fixed const &rhs) const
 {
-	if (rhs.getRawBits() >= this->_raw_bits)
+	if ( this->_raw_bits >= rhs.getRawBits())
 		return (true);
 	return (false);
 }
 
 bool	Fixed::operator<=(Fixed const &rhs) const
 {
-	if (rhs.getRawBits() <= this->_raw_bits)
+	if (this->_raw_bits <= rhs.getRawBits())
 		return (true);
 	return (false);
 }
 
 bool	Fixed::operator==(Fixed const &rhs) const
 {
-	if (rhs.getRawBits() == this->_raw_bits)
+	if (this->_raw_bits == rhs.getRawBits())
 		return (true);
 	return (false);
 }
 
 bool	Fixed::operator!=(Fixed const &rhs) const
 {
-	if (rhs.getRawBits() != this->_raw_bits)
+	if (this->_raw_bits != rhs.getRawBits())
 		return (true);
 	return (false);
 }
