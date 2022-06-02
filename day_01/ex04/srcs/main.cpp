@@ -2,6 +2,8 @@
 #include <string>
 #include <fstream>
 #include <cstring>
+#include <cerrno>
+#include <cstring>
 
 std::string __replace_occurence(std::string buffer, std::string new_txt,
 	std::string new_str, std::string old_str)
@@ -28,26 +30,45 @@ std::string __replace_occurence(std::string buffer, std::string new_txt,
 	return (new_txt);
 }
 
-int main(int argc, char *argv[])
+/*Return true if the file is empty*/
+
+bool	is_empty(std::ifstream& pFile)
+{
+    return pFile.peek() == std::ifstream::traits_type::eof();
+}
+
+bool	__check_args(int argc, char *argv[])
 {
 	if (argc != 4 || std::strlen(argv[1]) == 0 || std::strlen(argv[2]) == 0 || std::strlen(argv[3]) == 0)
 	{
 		std::cerr << "Wrong arguments" << std::endl;
-		return (1);
+		return (false);
 	}
-	std::string		old_str = argv[2];
-	std::string		new_str = argv[3];
-	std::ifstream	ifs(argv[1]);
+	return (true);
+}
+
+bool	__manage_ifs_error(std::ifstream &ifs, char *name)
+{
 	if (!ifs)
 	{
-		std::cerr << "Can't open the file " << argv[1] << std::endl;
-		return (1);
+		std::cerr << "Can't open the file " << name << std::endl;
+		return (false);
 	}
-	std::string		new_file = argv[1];
-	new_file.append(".replace");
-	std::ofstream	ofs(new_file.c_str());
-	std::string		buffer;
-	std::string		new_txt;
+	else if (is_empty(ifs))
+	{
+		std::cerr << name << " is an empty file or a directory" << std::endl;
+		return (false);
+	}
+	return (true);
+}
+
+std::string	__manage_replace(char *argv[], std::ifstream &ifs)
+{
+	std::string	buffer;
+	std::string	new_txt;
+	std::string	old_str = argv[2];
+	std::string	new_str = argv[3];
+
 	while (42)
 	{
 		std::getline(ifs, buffer);
@@ -56,6 +77,20 @@ int main(int argc, char *argv[])
 			break ;
 		new_txt.append("\n");
 	}
+	return (new_txt);
+}
+
+int main(int argc, char *argv[])
+{
+	if (__check_args(argc, argv) == false)
+		return (false);
+	std::ifstream	ifs(argv[1]);
+	if (__manage_ifs_error(ifs, argv[1]) == false)
+		return (false);
+	std::string		new_file = argv[1];
+	new_file.append(".replace");
+	std::ofstream	ofs(new_file.c_str());
+	std::string		new_txt = __manage_replace(argv, ifs);
 	ofs << new_txt;
 	ifs.close();
 	ofs.close();

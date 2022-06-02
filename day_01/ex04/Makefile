@@ -45,7 +45,7 @@ clean:
 
 fclean: clean
 	@echo  "Removing sed\c"
-	@rm -rf ${NAME} ${CLEANHEREDOC}
+	@rm -rf ${NAME}
 	@echo "\033[32m\t[OK]\033[0m"
 
 .PHONY : all clean re fclean 
