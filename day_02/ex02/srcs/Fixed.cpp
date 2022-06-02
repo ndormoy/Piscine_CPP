@@ -176,10 +176,33 @@ int		Fixed::toInt(void) const
 	return ((int)this->_raw_bits / (int)(1 << _fract_bits));
 }
 
-Fixed		const &Fixed::max(Fixed const &ref_1, Fixed const &ref_2)
+Fixed const	&Fixed::max(Fixed const &ref_1, Fixed const &ref_2)
 {
-	if (ref_1.getRawBits() > ref_2.getRawBits())
+	if (ref_1 > ref_2)
 		return (ref_1);
-	else
-		return (ref_2);
+	return (ref_2);
+	// if (ref_1.getRawBits() > ref_2.getRawBits())
 }
+
+Fixed const &Fixed::max(Fixed &ref_1, Fixed &ref_2)
+{
+	if (ref_1 > ref_2)
+		return (ref_1);
+	return (ref_2); 
+}
+
+Fixed const &Fixed::min(Fixed const &ref_1, Fixed const &ref_2)
+{
+	// if (ref_1.getRawBits() < ref_2.getRawBits())
+	if (ref_1 < ref_2)
+		return (ref_1);
+	return (ref_2);
+}
+
+Fixed const &Fixed::min(Fixed &ref_1, Fixed &ref_2)
+{
+	// if (ref_1.getRawBits() < ref_2.getRawBits())
+	if (ref_1 < ref_2)
+		return (ref_1);
+	return (ref_2);
+}	

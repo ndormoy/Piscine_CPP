@@ -15,10 +15,10 @@ class Fixed
 		int		getRawBits(void) const; // return raw bits
 		void	setRawBits(int const nb); // set raw bits
 
-		static	Fixed	const	&max(Fixed const &ref_1, Fixed const &ref_2);
-		//int		max(Fixed const &rhs);
-		//int		min(Fixed &rhs);
-		//int		min(Fixed const &rhs);
+		static Fixed const	&max(Fixed const &ref_1, Fixed const &ref_2); //Max avec const
+		static Fixed const	&max(Fixed &ref_1, Fixed &ref_2); // Max
+		static Fixed const	&min(Fixed const &ref_1, Fixed const &ref_2); // Min avec const
+		static Fixed const	&min(Fixed &ref_1, Fixed &ref_2); // Min
 
 		Fixed	&operator=(Fixed const &rhs); // overload assignment operator
 		bool	operator>(Fixed const &rhs) const; //overload op
