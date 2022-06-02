@@ -7,7 +7,7 @@ int main(int argc, char* argv[])
 
 	if (argc != 2)
 	{
-		std::cerr << "Expected : ./harl <LEVEL>" << std::endl;
+		std::cerr << "Expected : ./harlFilter <LEVEL>" << std::endl;
 		return (1);
 	}
 	if (std::strlen(argv[1]) == 0)
