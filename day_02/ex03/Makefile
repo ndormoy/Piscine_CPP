@@ -17,7 +17,8 @@ INC = 	includes/Fixed.hpp \
 
 SRC =	srcs/main.cpp \
 		srcs/Fixed.cpp \
-		srcs/Point.cpp
+		srcs/Point.cpp \
+		srcs/bsp.cpp
 
 
 OBJS = $(addprefix ${OBJDIR}/,${SRC:.cpp=.o})

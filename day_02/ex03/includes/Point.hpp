@@ -9,6 +9,8 @@ class	Point
 		~Point(void);
 		float	getPointX_float(void) const;
 		float	getPointY_float(void) const;
+		Fixed	getPointX(void) const;
+		Fixed	getPointY(void) const;
 		Point	&operator=(Point const &rhs);//overload assignment op
 	private:
 		Fixed const	_x;
