@@ -12,11 +12,11 @@ class ClapTrap
 		ClapTrap(ClapTrap const &src); // Copy constructor
 		~ClapTrap(void); // destructor
 		ClapTrap &operator=(ClapTrap const &src); // assignment operator
-		void takeDamage(unsigned int amount);
-		void attack(const std::string& target);
-		void beRepaired(unsigned int amount);
-		void GetInfo(void);
-	private:
+		void	takeDamage(unsigned int amount);
+		void	attack(const std::string& target);
+		void	beRepaired(unsigned int amount);
+		void	getInfo(void) const;
+	protected:
 		int _hit_points;
 		int _energy_points;
 		int _attack_damage;

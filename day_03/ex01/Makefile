@@ -1,4 +1,4 @@
-NAME = claptrap
+NAME = scavtrap
 
 SRCDIR = srcs
 OBJDIR = objs
@@ -12,10 +12,12 @@ ifeq ($(TMEM),0)
 MEM =
 endif
 
-INC = 	includes/ClapTrap.hpp
+INC = 	includes/ClapTrap.hpp \
+		includes/Scavtrap.hpp
 
 SRC =	srcs/main.cpp \
-		srcs/ClapTrap.cpp
+		srcs/ClapTrap.cpp \
+		srcs/ScavTrap.cpp
 
 OBJS = $(addprefix ${OBJDIR}/,${SRC:.cpp=.o})
 
@@ -45,7 +47,7 @@ clean:
 	@echo "\033[32m\t[OK]\033[0m"
 
 fclean: clean
-	@echo  "Removing claptrap\c"
+	@echo  "Removing scavtrap\c"
 	@rm -rf ${NAME}
 	@echo "\033[32m\t[OK]\033[0m"
 

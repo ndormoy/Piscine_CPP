@@ -1,18 +1,32 @@
 #include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int main()
 {
-	ClapTrap magi("magicarpe");
-	ClapTrap bulb("bulbizarre");
+	ScavTrap cara("carapuce");
+	ScavTrap sala("salameche");
 
-	magi.GetInfo();
-	bulb.GetInfo();
+	cara.getInfo();
+	sala.getInfo();
 	std::cout << "\n------------\n\n3... 2... 1... FIGHT !\n" << std::endl;
-	magi.attack("bulbizarre");
-	bulb.takeDamage(0);
-	bulb.beRepaired(5);
+	cara.attack("salameche");
+	sala.takeDamage(20);
+	sala.beRepaired(5);
+	cara.getInfo();
+	sala.getInfo();
+	cara.attack("salameche");
+	sala.takeDamage(20);
+	cara.attack("salameche");
+	sala.takeDamage(20);
+	cara.attack("salameche");
+	sala.takeDamage(20);
+	cara.attack("salameche");
+	sala.takeDamage(20);
+	cara.attack("salameche");
+	sala.takeDamage(20);
+
 	std::cout << "\nResultat du match :\n" << std::endl;
-	magi.GetInfo();
-	bulb.GetInfo();
+	cara.getInfo();
+	sala.getInfo();
 	return (0);
 }
