@@ -16,6 +16,7 @@ int main()
 	sala.getInfo();
 	cara.attack("salameche");
 	sala.takeDamage(20);
+	cara.guardGate();
 	cara.attack("salameche");
 	sala.takeDamage(20);
 	cara.attack("salameche");
