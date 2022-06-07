@@ -2,12 +2,26 @@
 
 /*--------------Constructor----------------*/
 
+ClapTrap::ClapTrap(void)
+{
+	_name = "No name";
+	std::cout << "Constructor called, welcome " << _name << std::endl;
+	_hit_points = 10;
+	_energy_points = 10;
+	_attack_damage = 0;
+}
+
 ClapTrap::ClapTrap(std::string name) : _name(name)
 {
 	std::cout << "Constructor called, welcome " << _name << std::endl;
 	_hit_points = 10;
 	_energy_points = 10;
 	_attack_damage = 0;
+}
+
+ClapTrap::ClapTrap(ClapTrap const &src)
+{
+	*this = src;
 }
 
 /*--------------Destructor-----------------*/
@@ -17,9 +31,20 @@ ClapTrap::~ClapTrap(void)
 	std::cout << "Destructor called, bye bye " << _name << std::endl;
 }
 
+/*--------------Overload operator----------*/
+
+ClapTrap	&ClapTrap::operator=(ClapTrap const &src)
+{
+	this->_hit_points = src._hit_points;
+	this->_energy_points = src._energy_points;
+	this->_attack_damage = src._attack_damage;
+	this->_name = src._name;
+	return (*this);
+}
+
 /*--------------Getters--------------------*/
 
-void ClapTrap::GetInfo(void)
+void	ClapTrap::GetInfo(void)
 {
 	std::cout << this->_name << ":" << std::endl;
 	std::cout << "hit point(s) = " << this->_hit_points << std::endl;
@@ -61,7 +86,7 @@ void	ClapTrap::beRepaired(unsigned int amount)
 		std::cout << "Your hit points are too low :(((( ... Go to a Pokemon Center !!" << std::endl;
 	else
 	{
-		std::cout << "ClapTrap " << _name << " healing itself, he recover " << amount << "hit point(s)" << std::endl;
+		std::cout << "ClapTrap " << _name << " healing itself, he recover " << amount << " hit point(s)" << std::endl;
 		this->_energy_points--;
 	}
 }
