@@ -12,13 +12,12 @@ ScavTrap::ScavTrap(void)
 
 }
 
-ScavTrap::ScavTrap(std::string name)
+ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
-	std::cout << "ScavTrap Constructor called, hi " <<  _name << std::endl;
-	_hit_points = 100;
 	_energy_points = 50;
 	_attack_damage = 20;
-	_name = name;
+	_hit_points = 100;
+	std::cout << "ScavTrap Constructor called, hi " <<  _name << std::endl;
 }
 
 ScavTrap::ScavTrap(ScavTrap const &src) : ClapTrap(src)
