@@ -14,12 +14,16 @@ endif
 
 INC = 	includes/Animal.hpp \
 		includes/Cat.hpp \
-		includes/Dog.hpp
+		includes/Dog.hpp \
+		includes/WrongAnimal.hpp \
+		includes/WrongCat.hpp
 
 SRC =	srcs/main.cpp \
 		srcs/Animal.cpp \
 		srcs/Cat.cpp \
-		srcs/Dog.cpp
+		srcs/Dog.cpp \
+		srcs/WrongAnimal.cpp \
+		srcs/WrongCat.cpp
 
 OBJS = $(addprefix ${OBJDIR}/,${SRC:.cpp=.o})
 
