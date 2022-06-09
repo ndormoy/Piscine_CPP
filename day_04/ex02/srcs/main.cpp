@@ -4,17 +4,6 @@
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
 #include "Brain.hpp"
-#define NB_ANIMAL 4
-
-// int	main()
-// {
-// 	const Animal* j = new Dog();
-// 	const Animal* i = new Cat();
-
-// 	delete j;//should not create a leak
-// 	delete i;
-// }
-
 
 int main()
 {
@@ -26,5 +15,9 @@ int main()
 	cat->setIdea("pouet", 0);
 	std::cout << cat->getIdea(0) << std::endl;
 
+	// Animal	*anim = new Animal();
+	// (void)anim;
+	delete cat;
+	delete minou;
 	return 0;
 }
