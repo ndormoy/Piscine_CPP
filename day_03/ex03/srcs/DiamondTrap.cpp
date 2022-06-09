@@ -8,9 +8,9 @@ DiamondTrap::DiamondTrap(void) : _name(ClapTrap::_name)
 	std::cout << "DiamondTrap Constructor called, heyy " << _name << std::endl;
 }
 
-DiamondTrap::DiamondTrap(std::string name) : _name(name)
+DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name)
 {
-	ClapTrap::_name = name;
+	_name = name;
 	ClapTrap::_name.append("_clap_name");
 	std::cout << "DiamondTrap Constructor called, heyy " << _name << std::endl;
 	_hit_points = 100;
@@ -18,7 +18,7 @@ DiamondTrap::DiamondTrap(std::string name) : _name(name)
 	_attack_damage = 30;
 }
 
-DiamondTrap::DiamondTrap(DiamondTrap const &src)
+DiamondTrap::DiamondTrap(DiamondTrap const &src) : ClapTrap(src), FragTrap(src), ScavTrap(src)
 {
 	*this = src;
 }
