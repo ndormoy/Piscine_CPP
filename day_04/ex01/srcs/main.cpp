@@ -43,6 +43,7 @@ int main()
 // 	Cat	*cat = new Cat();
 // 	cat->setIdea("pouet", 0);
 // 	std::cout << cat->getIdea(0) << std::endl;
-
+// 	delete minou;
+// 	delete cat;
 // 	return 0;
 // }
