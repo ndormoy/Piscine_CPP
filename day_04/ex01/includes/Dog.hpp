@@ -2,6 +2,7 @@
 #define DOG_HPP
 
 #include "Animal.hpp"
+#include "Brain.hpp"
 
 class Dog : public Animal
 {
@@ -10,8 +11,12 @@ class Dog : public Animal
 		Dog(Dog const &src);
 		virtual	~Dog(void);
 		Dog &operator=(Dog const &src);
-		std::string	GetType(void) const;
+		std::string	getType(void) const;
+		std::string	getIdea(int id) const;
+		void	setIdea(std::string str, int id);
 		void	makeSound(void) const;
+	private:
+		Brain	*_brain;
 };
 
 #endif

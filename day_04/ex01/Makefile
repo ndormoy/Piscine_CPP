@@ -1,4 +1,4 @@
-NAME = poly
+NAME = burn
 
 SRCDIR = srcs
 OBJDIR = objs
@@ -16,14 +16,16 @@ INC = 	includes/Animal.hpp \
 		includes/Cat.hpp \
 		includes/Dog.hpp \
 		includes/WrongAnimal.hpp \
-		includes/WrongCat.hpp
+		includes/WrongCat.hpp \
+		includes/Brain.hpp
 
 SRC =	srcs/main.cpp \
 		srcs/Animal.cpp \
 		srcs/Cat.cpp \
 		srcs/Dog.cpp \
 		srcs/WrongAnimal.cpp \
-		srcs/WrongCat.cpp
+		srcs/WrongCat.cpp \
+		srcs/Brain.cpp
 
 OBJS = $(addprefix ${OBJDIR}/,${SRC:.cpp=.o})
 
@@ -53,7 +55,7 @@ clean:
 	@echo "\033[32m\t[OK]\033[0m"
 
 fclean: clean
-	@echo  "Removing poly\c"
+	@echo  "Removing burn\c"
 	@rm -rf ${NAME}
 	@echo "\033[32m\t[OK]\033[0m"
 

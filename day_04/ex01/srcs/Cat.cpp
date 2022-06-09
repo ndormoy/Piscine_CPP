@@ -5,6 +5,7 @@
 Cat::Cat(void)
 {
 	_type = "Cat";
+	_brain = new Brain();
 	std::cout << "Cat Constructor called" << std::endl;
 }
 
@@ -17,6 +18,7 @@ Cat::Cat(Cat const &src) : Animal(src)
 
 Cat::~Cat(void)
 {
+	delete (_brain);
 	std::cout << "Cat Destructor called" << std::endl;
 }
 
@@ -30,9 +32,21 @@ Cat &Cat::operator=(Cat const &src)
 
 /*-------------Getters------------------*/
 
-std::string	Cat::GetType(void) const
+std::string	Cat::getType(void) const
 {
 	return (this->_type);
+}
+
+std::string	Cat::getIdea(int id) const
+{
+	return (this->_brain->getIdea(id));
+}
+
+/*-------------Setters------------------*/
+
+void	Cat::setIdea(std::string str, int id)
+{
+	this->_brain->setIdea(str, id);
 }
 
 /*-------------Functions----------------*/
