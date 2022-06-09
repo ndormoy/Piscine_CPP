@@ -1,4 +1,4 @@
-NAME = fixed
+NAME = poly
 
 SRCDIR = srcs
 OBJDIR = objs
@@ -12,10 +12,14 @@ ifeq ($(TMEM),0)
 MEM =
 endif
 
-INC = 	includes/Fixed.hpp
+INC = 	includes/Animal.hpp \
+		includes/Cat.hpp \
+		includes/Dog.hpp
 
 SRC =	srcs/main.cpp \
-		srcs/Fixed.cpp
+		srcs/Animal.cpp \
+		srcs/Cat.cpp \
+		srcs/Dog.cpp
 
 OBJS = $(addprefix ${OBJDIR}/,${SRC:.cpp=.o})
 
@@ -45,8 +49,8 @@ clean:
 	@echo "\033[32m\t[OK]\033[0m"
 
 fclean: clean
-	@echo  "Removing fixed\c"
+	@echo  "Removing poly\c"
 	@rm -rf ${NAME}
 	@echo "\033[32m\t[OK]\033[0m"
 
-.PHONY : all clean re fclean 
+.PHONY : all clean re fclean

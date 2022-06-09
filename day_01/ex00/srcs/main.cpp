@@ -9,7 +9,7 @@ int main()
 	bill->announce();
 	larmina = newZombie("larmina");
 	larmina->announce();
-	randomChump("heap_zomb");
+	randomChump("stack_zomb");
 	delete(bill);
 	delete(larmina);
 	return (0);

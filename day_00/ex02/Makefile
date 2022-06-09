@@ -45,8 +45,8 @@ clean:
 	@echo "\033[32m\t[OK]\033[0m"
 
 fclean: clean
-	@echo  "Removing minishell\c"
-	@rm -rf ${NAME} ${CLEANHEREDOC}
+	@echo  "Removing dreamjob\c"
+	@rm -rf ${NAME}
 	@echo "\033[32m\t[OK]\033[0m"
 
 .PHONY : all clean re fclean 
