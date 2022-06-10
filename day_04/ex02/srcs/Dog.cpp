@@ -9,9 +9,11 @@ Dog::Dog(void)
 	std::cout << "Dog Constructor called" << std::endl;
 }
 
-Dog::Dog(Dog const &src) : Animal(src)
+Dog::Dog(Dog const &src)
 {
-
+	_brain = new Brain();
+	*this = src;
+	std::cout << "Dog Copy Constructor called" << std::endl;
 }
 
 /*-------------Destructor---------------*/
@@ -26,7 +28,14 @@ Dog::~Dog(void)
 
 Dog &Dog::operator=(Dog const &src)
 {
-	this->_type = src._type;
+	if (this != &src) // Si la this == src, ca seg, on met une protection
+	{
+		this->_type = src._type;
+		delete (_brain); // On delete le brain de notre instance courante
+		_brain = new Brain();
+		for (int i = 0; i < 100; i++)
+			this->_brain->setIdea(src.getIdea(i), i);
+	}
 	return (*this);
 }
 

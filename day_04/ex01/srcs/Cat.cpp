@@ -9,9 +9,11 @@ Cat::Cat(void)
 	std::cout << "Cat Constructor called" << std::endl;
 }
 
-Cat::Cat(Cat const &src) : Animal(src)
+Cat::Cat(Cat const &src)
 {
-
+	_brain = new Brain();
+	*this = src;
+	std::cout << "Cat Copy Constructor called" << std::endl;
 }
 
 /*-------------Destructor---------------*/
@@ -26,7 +28,14 @@ Cat::~Cat(void)
 
 Cat &Cat::operator=(Cat const &src)
 {
-	this->_type = src._type;
+	if (this != &src) // Si la this == src, ca seg, on met une protection
+	{
+		this->_type = src._type;
+		delete (_brain); // On delete le brain de notre instance courante
+		_brain = new Brain();
+		for (int i = 0; i < 100; i++)
+			this->_brain->setIdea(src.getIdea(i), i);
+	}
 	return (*this);
 }
 

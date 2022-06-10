@@ -40,5 +40,6 @@ std::string	Brain::getIdea(int id) const
 
 void	Brain::setIdea(std::string str, int id)
 {
-	this->_ideas[id] = str;
+	if (id >= 0 && id < 100)
+		this->_ideas[id] = str;
 }

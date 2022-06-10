@@ -11,6 +11,7 @@ Animal::Animal(void)
 Animal::Animal(Animal const &src)
 {
 	*this = src;
+	std::cout << "Animal Copy Constructor called" << std::endl;
 }
 
 /*-------------Destructor---------------*/

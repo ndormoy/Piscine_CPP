@@ -47,3 +47,18 @@ int main()
 // 	delete cat;
 // 	return 0;
 // }
+
+/*Test pour savoir si la deep copy marche*/
+
+// int main()
+// {
+// 	Dog deeptest;
+// 	deeptest.setIdea("mdr", 0);
+// 	{
+// 		Dog testo = deeptest;
+// 		testo.setIdea("lol", 0);
+// 		std::cout << "testo idea[0] = " << testo.getIdea(0) << std::endl;
+
+// 	}
+// 	std::cout << "Deeptest idea[0] = " << deeptest.getIdea(0) << std::endl;
+// }
