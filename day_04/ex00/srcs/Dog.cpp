@@ -8,9 +8,10 @@ Dog::Dog(void)
 	std::cout << "Dog Constructor called" << std::endl;
 }
 
-Dog::Dog(Dog const &src) : Animal(src)
+Dog::Dog(Dog const &src)
 {
-
+	*this = src;
+	std::cout << "Dog Copy Constructor called" << std::endl;
 }
 
 /*-------------Destructor---------------*/

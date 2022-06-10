@@ -55,7 +55,8 @@ std::string	Cat::getIdea(int id) const
 
 void	Cat::setIdea(std::string str, int id)
 {
-	this->_brain->setIdea(str, id);
+	if (id >=0 && id < 100)
+		this->_brain->setIdea(str, id);
 }
 
 /*-------------Functions----------------*/

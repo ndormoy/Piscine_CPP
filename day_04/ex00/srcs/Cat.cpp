@@ -8,9 +8,10 @@ Cat::Cat(void)
 	std::cout << "Cat Constructor called" << std::endl;
 }
 
-Cat::Cat(Cat const &src) : Animal(src)
+Cat::Cat(Cat const &src)
 {
-
+	*this = src;
+	std::cout << "Cat Copy Constructor called" << std::endl;
 }
 
 /*-------------Destructor---------------*/
