@@ -14,6 +14,10 @@ Form::Form(const Form &src) : _name(src._name), _signed(src._signed), _to_sign(s
 
 Form::Form(std::string name, int to_sign, int to_execute) : _name(name), _to_sign(to_sign), _to_execute(to_execute)
 {
+	if (to_sign <= 0 || to_execute <= 0)
+		throw(GradeTooHighException());
+	else if (to_sign > 150 || to_execute > 150)
+		throw(GradeTooLowException());
 	std::cout << "Form constructor called" << std::endl;
 }
 
@@ -58,16 +62,18 @@ Form			&Form::operator=(const Form &src)
 	tmp_name = src._name;
 	tmp_to_sign = src._to_sign;
 	tmp_to_execute = src._to_execute;
-	this->_signed = src._signed;	
+	this->_signed = src._signed;
+	return (*this);
 }
 
 std::ostream&	operator<<(std::ostream &out, Form const &src)
 {
-	std::cout << "The form " << src.getName() << "need " << src.getToSign() << " to be sign and " << src.getToExecute() << " to be execute";
+	std::cout << "The form " << src.getName() << " needs " << src.getToSign() << " to be sign and " << src.getToExecute() << " to be execute -> ";
 	if (src.getSigned() == true)
-		std::cout << "The form is signed." << std::endl;
+		std::cout << "The form is signed" << std::endl;
 	else
-		std::cout << "The form is not signed." << std::endl;
+		std::cout << "The form is not signed";
+	return (out);
 }
 
 /*-------------Functions----------------*/
@@ -84,10 +90,10 @@ void			Form::beSigned(Bureaucrat &src)
 
 const char		*Form::GradeTooHighException::what() const throw()
 {
-	std::cout << "Error, this is to high :/" << std::endl;
+	return ("grade is to high :/");
 }
 
 const char		*Form::GradeTooLowException::what() const throw()
 {
-	std::cout << "Error, this is to low :(" << std::endl;
+	return ("grade is to low :(");
 }
