@@ -16,7 +16,7 @@ class	PresidentialPardonForm : public Form
 
 		void	pardon(std::string target);
 
-		void		execute(const Bureaucrat &executor);
+		void		execute(Bureaucrat const &executor) const;
 };
 
 #endif

@@ -16,7 +16,8 @@ class	RobotomyRequestForm : public Form
 
 		void	Robotomise(std::string target);
 
-		void		execute(const Bureaucrat &executor);
+		void		execute(Bureaucrat const &executor) const;
+
 };
 
 #endif

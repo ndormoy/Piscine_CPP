@@ -16,7 +16,7 @@ class	ShrubberyCreationForm : public Form
 
 		void	create_ascii(std::string target);
 
-		void		execute(const Bureaucrat &executor);
+		void		execute(Bureaucrat const &executor) const;
 
 		class	PbFile: public std::exception
 		{

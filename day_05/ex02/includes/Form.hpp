@@ -25,7 +25,7 @@ class Form
 		const int	&getToExecute(void) const; //Grade mini to execute the form
 
 		void		beSigned(Bureaucrat &src);
-		virtual	void		execute(const Bureaucrat &executor) = 0;
+		virtual	void		execute(Bureaucrat const &executor) const = 0;
 
 		class	GradeTooHighException : public std::exception
 		{

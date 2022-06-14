@@ -1,4 +1,7 @@
 #include "RobotomyRequestForm.hpp"
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 /*-------------------------------Constructor-------------------------------------------*/
 
@@ -14,7 +17,7 @@ RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &src) : Form(
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target) : Form(target, 72, 45)
 {
-	(void)target;
+
 }
 
 /*------------------------------Destructor--------------------------------------------*/
@@ -35,7 +38,17 @@ RobotomyRequestForm	&RobotomyRequestForm::operator=(const RobotomyRequestForm &s
 
 /*------------------------------Functions--------------------------------------------*/
 
-void			RobotomyRequestForm::execute(const Bureaucrat &executor)
+void			RobotomyRequestForm::execute(Bureaucrat const &executor) const
 {
-	(void)executor;
+	std::cout << "grade = " << executor.getGrade() << " | ToExecute = " << this->getToExecute() << std::endl;
+	if (this->getSigned() == false)
+		throw(FormNotSigned());
+	else if (executor.getGrade() > this->getToExecute())
+		throw(GradeTooLowException());
+	std::cout << "viiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiis vis vis vis vis viiiiiiiis" << std::endl;
+	srand (time(NULL));
+	if (rand()%2 == 0)
+		std::cout << this->getName() << " has been robotomise " << std::endl;
+	else
+		std::cout << "the operation failed" << std::endl;
 }

@@ -93,8 +93,21 @@ void			Bureaucrat::signForm(Form &my_form)
 	}
 }
 
-/*-------------Nested class-------------*/
+void			Bureaucrat::executeForm(Form const &form) const
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << _name << " executed " << form.getName() << std::endl;
+	}
+	catch (std::exception &error)
+	{
+		std::cout << error.what() << std::endl;
+	}
+}
 
+/*-------------Nested class-------------*/
+	
 const char		*Bureaucrat::GradeTooHighException::what() const throw()
 {
 	return ("Error, the grade is too high");

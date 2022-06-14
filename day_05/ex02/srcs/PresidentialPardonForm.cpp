@@ -13,9 +13,9 @@ PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &src
 }
 
 
-PresidentialPardonForm::PresidentialPardonForm(std::string target) : Form("DEFAULT", 25, 5)
+PresidentialPardonForm::PresidentialPardonForm(std::string target) : Form(target, 25, 5)
 {
-	(void)target;
+
 }
 
 /*------------------------------Destructor--------------------------------------------*/
@@ -36,7 +36,11 @@ PresidentialPardonForm	&PresidentialPardonForm::operator=(const PresidentialPard
 
 /*------------------------------Functions---------------------------------------------*/
 
-void	PresidentialPardonForm::execute(const Bureaucrat &executor)
+void	PresidentialPardonForm::execute(Bureaucrat const &executor) const
 {
-	(void)executor;
+	if (this->getSigned() == false)
+		throw(FormNotSigned());
+	else if (executor.getGrade() > this->getToExecute())
+		throw(GradeTooLowException());
+	std::cout << "you have been forgiven by Zaphod Beeblebrox" << std::endl;
 }

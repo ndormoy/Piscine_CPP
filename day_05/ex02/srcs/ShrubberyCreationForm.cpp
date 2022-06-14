@@ -17,7 +17,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &src) :
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : Form(target, 145, 137)
 {
-	(void)target;
+
 }
 
 /*-------------------------------Destructor--------------------------------------------*/
@@ -45,7 +45,7 @@ const char	*ShrubberyCreationForm::PbFile::what() const throw()
 
 /*------------------------------Functions----------------------------------------------*/
 
-void	ShrubberyCreationForm::execute(const Bureaucrat &executor)
+void	ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 {
 	if (this->getSigned() == false)
 		throw(FormNotSigned());
