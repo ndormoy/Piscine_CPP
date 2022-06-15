@@ -5,7 +5,7 @@ OBJDIR = objs
 INCDIR = includes
 
 CC = c++ -std=c++98
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror -g -MD
 MEM = #-fsanitize=thread
 
 ifeq ($(TMEM),0)
@@ -20,6 +20,7 @@ SRC =	srcs/main.cpp \
 		srcs/Form.cpp
 
 OBJS = $(addprefix ${OBJDIR}/,${SRC:.cpp=.o})
+DEP = $(addprefix ${OBJDIR}/,${SRC:.cpp=.d})
 
 all: ${NAME}
 
@@ -32,6 +33,8 @@ CYAN="\033[1;36m"
 GREY="\033[0;37m"
 RESET="\033[m"
 
+-include $(DEP)
+
 $(NAME): ${OBJS}
 	${CC} ${CFLAGS} ${MEM} ${OBJS} -I./${INCDIR} -o $@
 
@@ -43,7 +46,7 @@ re: fclean all
 
 clean:
 	@echo  "Cleaning objects\c"
-	@rm -rf ${OBJDIR}
+	@rm -rf ${OBJDIR} $(DEP)
 	@echo "\033[32m\t[OK]\033[0m"
 
 fclean: clean
