@@ -4,12 +4,12 @@
 
 Form::Form(void) : _name("DEFAULT"), _signed(false), _to_sign(150), _to_execute(150)
 {
-	std::cout << "Form DEFAULT constructor called" << std::endl;
+	//std::cout << "Form DEFAULT constructor called" << std::endl;
 }
 
 Form::Form(const Form &src) : _name(src._name), _signed(src._signed), _to_sign(src._to_sign), _to_execute(src._to_sign)
 {
-	std::cout << "Form COPY constructor called" << std::endl;
+	//std::cout << "Form COPY constructor called" << std::endl;
 }
 
 Form::Form(std::string name, int to_sign, int to_execute) : _name(name), _to_sign(to_sign), _to_execute(to_execute)
@@ -18,14 +18,14 @@ Form::Form(std::string name, int to_sign, int to_execute) : _name(name), _to_sig
 		throw(GradeTooHighException());
 	else if (to_sign > 150 || to_execute > 150)
 		throw(GradeTooLowException());
-	std::cout << "Form constructor called" << std::endl;
+	//std::cout << "Form constructor called" << std::endl;
 }
 
 /*-------------Destructor--------------*/
 
 Form::~Form(void)
 {
-	std::cout << "Form Destructor called" << std::endl;
+	//std::cout << "Form Destructor called" << std::endl;
 }
 
 /*-------------Getters-----------------*/

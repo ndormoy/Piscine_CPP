@@ -16,7 +16,7 @@ INC = 	includes/Bureaucrat.hpp \
 		includes/Form.hpp \
 		includes/ShrubberyCreationForm.hpp \
 		includes/RobotomyRequestForm.hpp \
-		PresidentialPardonForm.hpp
+		includes/PresidentialPardonForm.hpp
 
 SRC =	srcs/main.cpp \
 		srcs/Bureaucrat.cpp \

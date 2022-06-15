@@ -16,14 +16,16 @@ INC = 	includes/Bureaucrat.hpp \
 		includes/Form.hpp \
 		includes/ShrubberyCreationForm.hpp \
 		includes/RobotomyRequestForm.hpp \
-		PresidentialPardonForm.hpp
+		includes/PresidentialPardonForm.hpp \
+		includes/Intern.hpp
 
 SRC =	srcs/main.cpp \
 		srcs/Bureaucrat.cpp \
 		srcs/Form.cpp \
 		srcs/ShrubberyCreationForm.cpp \
 		srcs/RobotomyRequestForm.cpp \
-		srcs/PresidentialPardonForm.cpp
+		srcs/PresidentialPardonForm.cpp \
+		srcs/Intern.cpp
 
 OBJS = $(addprefix ${OBJDIR}/,${SRC:.cpp=.o})
 

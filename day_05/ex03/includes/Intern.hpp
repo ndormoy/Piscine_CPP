@@ -3,6 +3,9 @@
 
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 class	Intern
 {
@@ -14,6 +17,9 @@ class	Intern
 		Intern	&operator=(const Intern &src);
 
 		Form	*makeForm(std::string name_form, std::string target);
-}
+		Form	*makeShrubbery(std::string target);
+		Form	*makeRobotomy(std::string target);
+		Form	*makePresidential(std::string target);
+};
 
 #endif

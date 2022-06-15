@@ -3,75 +3,27 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
-#include <unistd.h>
+#include "Intern.hpp"
 
 int main()
 {
 	Bureaucrat				nullos("nullos", 150);
 	Bureaucrat				patrice("patoche", 2);
-	Bureaucrat				jp("jp", 10);
-	ShrubberyCreationForm	kinder("kinder");
-	RobotomyRequestForm		bueno("bueno");
-	PresidentialPardonForm	country("country");
+	Form	*my_form;
+	Intern	corentin;
 
-	// try
-	// {
-	// 	kinder.execute(patrice);
-	// }
-	// catch (std::exception &error)
-	// {
-	// 	std::cout << error.what() << std::endl;
-	// }
-	// try
-	// {
-	// 	patrice.signForm(kinder);
-	// 	kinder.execute(patrice);
-	// }
-	// catch (std::exception &error)
-	// {
-	// 	std::cout << error.what() << std::endl;
-	// }
-	// try
-	// {
-	// 	patrice.signForm(bueno);
-	// 	for (int i = 0; i < 10; i++)
-	// 	{
-	// 		sleep(1);
-	// 		bueno.execute(patrice);
-	// 	}
-			
-	// }
-	// catch (std::exception &error)
-	// {
-	// 	std::cout << error.what() << std::endl;
-	// }	
-	try
-	{
-		jp.signForm(country);
-		country.execute(jp);
-	}
-	catch (std::exception &error)
-	{
-		std::cerr << error.what() << std::endl;
-	}
-	// try
-	// {
-	// 	patrice.signForm(country);
-	// 	country.execute(patrice);
-	// }
-	// catch (std::exception &error)
-	// {
-	// 	std::cout << error.what() << std::endl;
-	// }
-	// try
-	// {
-	// 	nullos.signForm(bueno);
-	// 	patrice.signForm(bueno);
-	// 	patrice.executeForm(bueno);
-	// }
-	// catch (std::exception &error)
-	// {
-	// 	std::cout << error.what() << std::endl;
-	// }
+	my_form = corentin.makeForm("mdr", "form_a");
+
+	my_form = corentin.makeForm("shrubbery creation", "pizza");
+	std::cout << *my_form << std::endl;
+	delete(my_form);
+
+	my_form = corentin.makeForm("robotomy request", "exterminate");
+	std::cout << *my_form << std::endl;
+	delete(my_form);
+
+	my_form = corentin.makeForm("presidential pardon", "sorry bro");
+	std::cout << *my_form << std::endl;
+	delete(my_form);
 	return (0);
 }
