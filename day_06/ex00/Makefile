@@ -12,20 +12,10 @@ ifeq ($(TMEM),0)
 MEM =
 endif
 
-INC = 	includes/Bureaucrat.hpp \
-		includes/Form.hpp \
-		includes/ShrubberyCreationForm.hpp \
-		includes/RobotomyRequestForm.hpp \
-		includes/PresidentialPardonForm.hpp \
-		includes/Intern.hpp
+INC = 	includes/ScalarConversion.hpp
 
 SRC =	srcs/main.cpp \
-		srcs/Bureaucrat.cpp \
-		srcs/Form.cpp \
-		srcs/ShrubberyCreationForm.cpp \
-		srcs/RobotomyRequestForm.cpp \
-		srcs/PresidentialPardonForm.cpp \
-		srcs/Intern.cpp
+		srcs/ScalarConversion.cpp
 
 OBJS = $(addprefix ${OBJDIR}/,${SRC:.cpp=.o})
 DEP = $(addprefix ${OBJDIR}/,${SRC:.cpp=.d})
