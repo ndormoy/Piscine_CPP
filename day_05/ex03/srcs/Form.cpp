@@ -12,7 +12,7 @@ Form::Form(const Form &src) : _name(src._name), _signed(src._signed), _to_sign(s
 	//std::cout << "Form COPY constructor called" << std::endl;
 }
 
-Form::Form(std::string name, int to_sign, int to_execute) : _name(name), _to_sign(to_sign), _to_execute(to_execute)
+Form::Form(std::string name, int to_sign, int to_execute) : _signed(false), _name(name), _to_sign(to_sign), _to_execute(to_execute)
 {
 	if (to_sign <= 0 || to_execute <= 0)
 		throw(GradeTooHighException());
