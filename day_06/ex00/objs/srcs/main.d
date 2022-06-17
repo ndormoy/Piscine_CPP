@@ -117,4 +117,31 @@ objs/srcs/main.o: srcs/main.cpp includes/ScalarConversion.hpp \
   /usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../../include/c++/10/bits/basic_ios.tcc \
   /usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../../include/c++/10/bits/ostream.tcc \
   /usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../../include/c++/10/istream \
-  /usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../../include/c++/10/bits/istream.tcc
+  /usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../../include/c++/10/bits/istream.tcc \
+  /usr/lib/llvm-12/lib/clang/12.0.0/include/limits.h \
+  /usr/include/limits.h /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
+  /usr/include/linux/limits.h \
+  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+  /usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../../include/c++/10/limits \
+  /usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../../include/c++/10/stdlib.h \
+  /usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../../include/c++/10/cstdlib \
+  /usr/include/stdlib.h /usr/include/x86_64-linux-gnu/bits/waitflags.h \
+  /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
+  /usr/include/x86_64-linux-gnu/sys/types.h \
+  /usr/include/x86_64-linux-gnu/bits/stdint-intn.h /usr/include/endian.h \
+  /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+  /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
+  /usr/include/x86_64-linux-gnu/sys/select.h \
+  /usr/include/x86_64-linux-gnu/bits/select.h \
+  /usr/include/x86_64-linux-gnu/bits/types/sigset_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h \
+  /usr/include/alloca.h \
+  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
+  /usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../../include/c++/10/bits/std_abs.h \
+  /usr/include/errno.h /usr/include/x86_64-linux-gnu/bits/errno.h \
+  /usr/include/linux/errno.h /usr/include/x86_64-linux-gnu/asm/errno.h \
+  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
+  /usr/include/x86_64-linux-gnu/bits/types/error_t.h
