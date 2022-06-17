@@ -1,4 +1,4 @@
-NAME = scalar
+NAME = data
 
 SRCDIR = srcs
 OBJDIR = objs
@@ -12,10 +12,10 @@ ifeq ($(TMEM),0)
 MEM =
 endif
 
-INC = 	includes/ScalarConversion.hpp
+INC = 	includes/Data.hpp
 
 SRC =	srcs/main.cpp \
-		srcs/ScalarConversion.cpp
+		srcs/Data.cpp
 
 OBJS = $(addprefix ${OBJDIR}/,${SRC:.cpp=.o})
 DEP = $(addprefix ${OBJDIR}/,${SRC:.cpp=.d})
@@ -48,7 +48,7 @@ clean:
 	@echo "\033[32m\t[OK]\033[0m"
 
 fclean: clean
-	@echo  "Removing scalar\c"
+	@echo  "Removing data\c"
 	@rm -rf ${NAME}
 	@echo "\033[32m\t[OK]\033[0m"
 
