@@ -5,7 +5,7 @@
 #include <string>
 #include <stdexcept>
 #include <limits.h>
-#include <limits>
+#include <float.h>
 #include <ctype.h>
 #include <cctype>
 #include <stdlib.h>

@@ -75,7 +75,7 @@ bool	ScalarConversion::__print_overflow(void) const
 	std::cout << "int: Overflow" << std::endl;
 	std::cout << "float: Overflow" << std::endl;
 	std::cout << "double: Overflow" << std::endl;
-	return (false);
+	return (true);
 }
 
 bool	ScalarConversion::__is_duplicate(std::string str, char c) const
@@ -171,12 +171,15 @@ bool	ScalarConversion::__is_float(std::string str) const
 {
 	if (__check_comma_nbs(str, 'f') == false)
 		return (false);
+	long	long	ll = atoll(str.c_str());
 	float	f = std::strtof(str.c_str(), NULL);
 	if (errno == ERANGE)
 		std::cout << "o something" << std::endl;
 	char	c = static_cast<char> (f);
 	int		i = static_cast<int> (f);
 	double	d = static_cast<double> (f);
+	if (ll > FLT_MAX || ll < FLT_MIN)
+		return (__print_overflow());
 	return (__print_all(c, i, f, d, FLOAT));
 }
 
@@ -184,12 +187,15 @@ bool	ScalarConversion::__is_double(std::string str) const
 {
 	if (__check_comma_nbs(str, 'd') == false)
 		return (false);
+	long	long	ll = atoll(str.c_str());
 	double	d = std::strtod(str.c_str(), NULL);
 	if (errno == ERANGE)
 		std::cout << "Again do something" << std::endl;
 	float	f = static_cast<float> (d);
 	char	c = static_cast<char> (d);
 	int		i = static_cast<int> (d);
+	if (ll > FLT_MAX || ll < FLT_MIN)
+		return (__print_overflow());
 	return (__print_all(c, i, f, d, DOUBLE));
 }
 
