@@ -60,26 +60,23 @@ bool	ScalarConversion::__print_all(std::string str, char c, int i, float f, doub
 	else
 		std::cout << "int: Non displayable" << std::endl;
 	std::cout << "float: " << f;
-
-
-	(void)str;
 	std::string	check_f = __convertFloat(f);
 	if (type == INT)
 		std::cout << ".0f" << std::endl;
-	// else if (str.find(".0") != std::string::npos && check_f.size() != str.size() - 1 && type == FLOAT)
-	// 	std::cout << ".0f" << std::endl;
-	// else if (str.find(".0") != std::string::npos && check_f.size() != str.size() && type == DOUBLE)
-	// 	std::cout << ".0f" << std::endl;
+	else if (str.find(".0") != std::string::npos && check_f.size() != str.size() - 1 && type == FLOAT)
+		std::cout << ".0f" << std::endl;
+	else if (str.find(".0") != std::string::npos && check_f.size() != str.size() && type == DOUBLE)
+		std::cout << ".0f" << std::endl;
 	else
 		std::cout << "f" << std::endl;
 	std::cout << "double: " << d;
 	std::string	check_d = __convertDouble(d);
 	if (type == INT)
 		std::cout << ".0" << std::endl;
-	// else if (str.find(".0") != std::string::npos && check_d.size() != str.size() - 1 && type == FLOAT)
-	// 	std::cout << ".0" << std::endl;
-	// else if (str.find(".0") != std::string::npos && check_d.size() != str.size() && type == DOUBLE)
-	// 	std::cout << ".0" << std::endl;
+	else if (str.find(".0") != std::string::npos && check_d.size() != str.size() - 1 && type == FLOAT)
+		std::cout << ".0" << std::endl;
+	else if (str.find(".0") != std::string::npos && check_d.size() != str.size() && type == DOUBLE)
+		std::cout << ".0" << std::endl;
 	else
 		std::cout << std::endl;
 	return (true);
