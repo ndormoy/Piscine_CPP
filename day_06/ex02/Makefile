@@ -12,10 +12,16 @@ ifeq ($(TMEM),0)
 MEM =
 endif
 
-INC = 	includes/Data.hpp
+INC = 	includes/Base.hpp \
+		includes/A.hpp \
+		includes/B.hpp \
+		includes/C.hpp
 
 SRC =	srcs/main.cpp \
-		srcs/Data.cpp
+		srcs/Base.cpp \
+		srcs/A.cpp \
+		srcs/B.cpp \
+		srcs/C.cpp
 
 OBJS = $(addprefix ${OBJDIR}/,${SRC:.cpp=.o})
 DEP = $(addprefix ${OBJDIR}/,${SRC:.cpp=.d})

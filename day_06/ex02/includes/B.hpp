@@ -5,7 +5,8 @@
 
 class	B : public Base
 {
-
+	public:
+		~B(void); // destructor
 };
 
 #endif
