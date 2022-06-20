@@ -1,4 +1,4 @@
-NAME = data
+NAME = identify
 
 SRCDIR = srcs
 OBJDIR = objs
@@ -54,7 +54,7 @@ clean:
 	@echo "\033[32m\t[OK]\033[0m"
 
 fclean: clean
-	@echo  "Removing data\c"
+	@echo  "Removing identify\c"
 	@rm -rf ${NAME}
 	@echo "\033[32m\t[OK]\033[0m"
 

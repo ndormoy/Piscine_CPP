@@ -2,6 +2,7 @@
 #define SCALARCONVERSION_HPP
 
 #include <iostream>
+#include <sstream>
 #include <string>
 #include <stdexcept>
 #include <limits.h>
@@ -10,6 +11,9 @@
 #include <cctype>
 #include <stdlib.h>
 #include <errno.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <cstring>
 
 #define INT 0
 #define FLOAT 1
@@ -27,7 +31,7 @@ class ScalarConversion
 		ScalarConversion &operator=(const ScalarConversion &src);
 
 		void	__whatType(std::string literal) const;
-		bool	__is_char(char c) const;
+		bool	__is_char(std::string str, char c) const;
 		bool	__is_int(std::string str) const;
 		bool	__is_float(std::string str) const;
 		bool	__is_double(std::string str) const;
@@ -35,10 +39,13 @@ class ScalarConversion
 		bool	__str_is_digit(std::string str) const;
 		bool	__str_is_almost_digit(std::string str) const;
 		bool	__check_comma_nbs(std::string str, char c) const;
-		bool	__print_all(char c, int i, float f, double d, int type) const;
+		bool	__print_all(std::string str, char c, int i, float f, double d, int type) const;
 		void	__print_nan(void) const;
 		void	__print_inf(std::string str) const;
 		bool	__print_overflow(void) const;
+
+		std::string	__convertFloat(float value) const;
+		std::string	__convertDouble(double value) const;
 
 	private:
 
