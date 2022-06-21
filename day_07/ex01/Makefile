@@ -1,4 +1,4 @@
-NAME = info
+NAME = iter
 
 SRCDIR = srcs
 OBJDIR = objs
@@ -12,7 +12,7 @@ ifeq ($(TMEM),0)
 MEM =
 endif
 
-INC = 	includes/watever.hpp
+INC = 	includes/iter.hpp
 
 SRC =	srcs/main.cpp
 
@@ -47,7 +47,7 @@ clean:
 	@echo "\033[32m\t[OK]\033[0m"
 
 fclean: clean
-	@echo  "Removing info\c"
+	@echo  "Removing iter\c"
 	@rm -rf ${NAME}
 	@echo "\033[32m\t[OK]\033[0m"
 
