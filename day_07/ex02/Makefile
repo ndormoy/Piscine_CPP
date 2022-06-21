@@ -1,4 +1,4 @@
-NAME = iter
+NAME = array
 
 SRCDIR = srcs
 OBJDIR = objs
@@ -12,8 +12,8 @@ ifeq ($(TMEM),0)
 MEM =
 endif
 
-INC = 	includes/iter.hpp
-
+INC = 	includes/Array.hpp \
+		includes/Array.tpp
 SRC =	srcs/main.cpp
 
 OBJS = $(addprefix ${OBJDIR}/,${SRC:.cpp=.o})
@@ -47,7 +47,7 @@ clean:
 	@echo "\033[32m\t[OK]\033[0m"
 
 fclean: clean
-	@echo  "Removing iter\c"
+	@echo  "Removing array\c"
 	@rm -rf ${NAME}
 	@echo "\033[32m\t[OK]\033[0m"
 
