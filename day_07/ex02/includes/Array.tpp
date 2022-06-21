@@ -45,7 +45,12 @@ class	Array
 			return (*this);
 		}
 		/*--------------Overload Operator [] ------------*/
-		
+		T	&operator[]( unsigned int n)
+		{
+			if (n < 0 || n >= _len)
+				throw std::out_of_range("Error, you are out of range");
+			return (_array[n]);
+		}
 		/*--------------Getter _array--------------------*/
 		T	*getT(void) const // 
 		{
