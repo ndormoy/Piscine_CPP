@@ -39,6 +39,16 @@ int main()
 	{
 		std::cerr << e.what() << '\n';
 	}
+	try
+	{
+		Span	spanito(5);
+		spanito.longestSpan();
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	
 	
 	
 }

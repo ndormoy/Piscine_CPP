@@ -41,8 +41,6 @@ const char		*Span::pbSpan::what() const throw()
 
 void	Span::addNumber(int num)
 {
-	// std::cout << "size = " << _size << std::endl;
-	// std::cout << "_N = " << _N << std::endl;
 	if (_size < _N)
 	{
 		_span.push_back(num);
