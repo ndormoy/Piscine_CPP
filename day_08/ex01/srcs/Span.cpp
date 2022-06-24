@@ -61,6 +61,13 @@ void	Span::addMultipleNumber(int nb1, int nb2)
 		addNumber(i);
 }
 
+void	Span::insertMultipleNumber(std::vector<int>::iterator nb1, std::vector<int>::iterator nb2)
+{
+	if (nb1 >= nb2 || (std::abs(nb2 - nb1) + _size) > _N)
+		throw(pbSpan());
+	_span.insert(_span.end(), nb1, nb2);
+}
+
 int	Span::shortestSpan(void)
 {
 	int	len = _span.size();
@@ -83,4 +90,10 @@ int	Span::longestSpan(void)
 	int max = *std::max_element(_span.begin(), _span.end());
 
 	return (max - min);
+}
+
+void	Span::printSpan(void)
+{
+	for(int i = 0; i < (int)_span.size(); i++)
+		std::cout << _span[i] << std::endl;
 }

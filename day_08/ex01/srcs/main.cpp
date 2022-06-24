@@ -48,6 +48,22 @@ int main()
 	{
 		std::cerr << e.what() << '\n';
 	}
+	std::cout << "--------------------------------------------" << std::endl;
+	try
+	{
+		Span	spani(50);
+		spani.addMultipleNumber(0, 5);
+		std::vector<int> hello;
+		hello.push_back(30);
+		hello.push_back(40);
+		hello.push_back(50);
+		spani.insertMultipleNumber(hello.begin(), hello.end());
+		spani.printSpan();
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 	
 	
 	

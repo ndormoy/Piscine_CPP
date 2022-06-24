@@ -21,8 +21,10 @@ class	Span
 
 		void	addNumber(int num);
 		void	addMultipleNumber(int nb1, int nb2);
+		void	insertMultipleNumber(std::vector<int>::iterator nb1, std::vector<int>::iterator nb2);
 		int		shortestSpan(void);
 		int		longestSpan(void);
+		void	printSpan(void);
 
 		class	pbSpan: public std::exception
 		{
