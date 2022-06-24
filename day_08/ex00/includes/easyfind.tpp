@@ -15,7 +15,7 @@ class	NotFound : public std::exception
 template<typename T>
 void	easyfind(T cont, int i)
 {
-	std::vector<int>::iterator	it;
+	typename T::iterator	it;
 	it = std::find(cont.begin(), cont.end(), i);
 	if (it != cont.end())
 		std::cout << "Element " << i << " found." << std::endl;

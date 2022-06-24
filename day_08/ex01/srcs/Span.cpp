@@ -25,8 +25,11 @@ Span::~Span(void)
 
 Span	&Span::operator=(const Span &src)
 {
-	_N = src._N;
-	_size = src._size;
+	if (this != &src)
+	{
+		_N = src._N;
+		_size = src._size;
+	}
 	return (*this);
 }
 
@@ -69,7 +72,6 @@ int	Span::shortestSpan(void)
 		if (abs(_span[i] - _span[i -1]) < diff)
 			diff = abs(_span[i] - _span[i - 1]);
 	return (diff);
-	
 }
 
 int	Span::longestSpan(void)

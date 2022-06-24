@@ -29,7 +29,8 @@ class	MutantStack : public std::stack<T>
 
 		MutantStack	&operator=(const MutantStack &src)
 		{
-			this->c = src.c;
+			if (this != &src)
+				this->c = src.c;
 			return (*this);
 		}
 		iterator	begin();
@@ -51,18 +52,6 @@ template<typename T>
 typename MutantStack<T>::iterator	MutantStack<T>::end()
 {
 	return (this->c.end());
-}
-
-template<typename T>
-typename MutantStack<T>::iterator	MutantStack<T>::rbegin()
-{
-	return (this->c.rbegin());
-}
-
-template<typename T>
-typename MutantStack<T>::iterator	MutantStack<T>::rend()
-{
-	return (this->c.rend());
 }
 
 #endif
